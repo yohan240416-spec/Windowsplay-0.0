@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Windowsplay 0.0</title>
-<style>html,body{margin:0;height:100%;background:#000} #screen{width:100%;height:100vh}</style>
+<title>Windowsplay 0.0 - PS2 Emulator</title>
+<style>
+body{margin:0;background:#000;overflow:hidden;font-family:Arial}
+#game{width:100vw;height:100vh}
+#aviso{position:fixed;top:0;left:0;right:0;background:#003791;color:white;padding:6px;text-align:center;font-size:12px;z-index:10}
+</style>
 </head>
 <body>
-<div id="screen"></div>
-<script src="https://unpkg.com/v86@0.2.12/build/libv86.js"></script>
+<div id="aviso">Windowsplay 0.0 - PS2 Emulador Real - Carregando... precisa de PC bom, no celular vai travar</div>
+<div id="game"></div>
+
 <script>
-var emulator = new V86({
-  screen_container: document.getElementById("screen"),
-  bios: { url: "https://copy.sh/v86/bios/seabios.bin" },
-  vga_bios: { url: "https://copy.sh/v86/bios/vgabios.bin" },
-  hda: { url: "https://copy.sh/v86/images/freedos722.img" },
-  autostart: true,
-  memory_size: 128*1024*1024
-});
+EJS_player = '#game';
+EJS_core = 'ps2'; // PS2 REAL
+EJS_gameUrl = 'jogo.iso'; // nome do seu jogo upado
+EJS_biosUrl = 'bios.bin'; // BIOS do PS2
+EJS_pathtodata = 'https://cdn.emulatorjs.org/latest/data/';
+EJS_color = '#003791';
+EJS_startOnLoaded = true;
 </script>
+<script src="https://cdn.emulatorjs.org/latest/data/loader.js"></script>
 </body>
 </html>
